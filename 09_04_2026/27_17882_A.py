@@ -13,8 +13,8 @@ for line in f:
     else:
         cluster_2.append(point)
 
-min_sum = 10000000
-center = cluster_1[0]
+min_sum = 100000000000
+center = None
 
 for p1 in cluster_1:
     cur_sum = 0
