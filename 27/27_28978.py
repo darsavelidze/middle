@@ -6,6 +6,15 @@ for line in f:
     point = [float(x) for x in line.replace(',', '.').split()]
     data.append(point)
 
+from math import dist
+
+def dbscan_short(points, epsilon):
+    clusters = []
+    while points:
+        clusters.append(cluster := [points.pop(0)])
+        [cluster.append(p) or points.remove(p) for core in cluster for p in points if dist(core, p) < epsilon]
+    return clusters
+
 
 def dbscan(points, epsilon):
     clusters = []
